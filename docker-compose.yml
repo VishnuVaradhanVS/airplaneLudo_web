@@ -1,0 +1,11 @@
+# Test the web UI locally in Docker, pointed at your Render backend (default) or any other backend.
+#   docker compose up --build            -> http://localhost:8080
+#   BACKEND_WS_URL=ws://localhost:10000/ludo docker compose up --build   (against a backend running on your machine)
+services:
+  web:
+    build: .
+    ports:
+      - "8080:10000"
+    environment:
+      PORT: "10000"
+      BACKEND_WS_URL: ${BACKEND_WS_URL:-wss://airplaneludo-backend.onrender.com/ludo}

@@ -1,0 +1,20 @@
+# Run the REAL Kotlin backend AND the web UI together on your machine (no Render involved).
+#   git clone https://github.com/VishnuVaradhanVS/airplaneLudo_backend.git ../airplaneLudo_backend
+#   docker compose -f docker-compose.fullstack.yml up --build
+#   -> web UI: http://localhost:8080      backend: ws://localhost:10000/ludo/{room}
+services:
+  backend:
+    build: ${BACKEND_DIR:-../airplaneLudo_backend}
+    ports:
+      - "10000:10000"
+    environment:
+      PORT: "10000"
+  web:
+    build: .
+    depends_on:
+      - backend
+    ports:
+      - "8080:10000"
+    environment:
+      PORT: "10000"
+      BACKEND_WS_URL: ws://localhost:10000/ludo

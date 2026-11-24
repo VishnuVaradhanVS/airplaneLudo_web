@@ -1,0 +1,8 @@
+.git
+.gitignore
+tools
+node_modules
+README.md
+docker-compose*.yml
+render.yaml
+*.zip

@@ -1,0 +1,12 @@
+# Render Blueprint: New + > Blueprint > pick this repo. (Or create a "Web Service" manually, runtime = Docker.)
+services:
+  - type: web
+    name: airplaneludo-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: BACKEND_WS_URL
+        value: wss://airplaneludo-backend.onrender.com/ludo

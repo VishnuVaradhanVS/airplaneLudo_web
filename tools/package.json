@@ -1,0 +1,7 @@
+{
+  "name": "airplaneludo-mock-backend",
+  "private": true,
+  "description": "Optional testing aid: JS port of the Kotlin backend for local UI testing",
+  "scripts": { "start": "node mock-server.js", "web": "node mock-server.js --serve-web" },
+  "dependencies": { "ws": "^8.18.0" }
+}
